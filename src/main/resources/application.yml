@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: sungjun-stream-server
+  cloud:
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+      bindings:
+        input:
+          binder: kafka
+          destination: test-topic-01
+          contentType: application/json
+          group: input-group-1
+        output:
+          binder: kafka
+          destination: test-topic-01
+          contentType: application/json
+          group: output-group-1
